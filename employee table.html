@@ -1,0 +1,110 @@
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width, initial-
+
+scale=1.0">
+
+<title>N209 Nitigya Laddha Experiment 3</title>
+
+<!-- CSS only -->
+
+<link
+
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap
+
+.min.css" rel="stylesheet" integrity="sha384-
+
+gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+
+crossorigin="anonymous">
+
+<script
+
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.mi
+
+n.js"></script>
+
+<style>
+
+table
+
+{
+
+width: 900px;
+
+border: 1px solid black;
+
+}
+
+tr,td
+
+{
+
+background-color: lightblue;
+
+border: 1px solid black;
+
+text-align: center;
+
+}
+
+th
+
+{
+
+background-color: rgb(21, 4, 133);
+
+border: 1px solid black;
+
+color: white;
+text-align: center; 
+} 
+</style> 
+</head> 
+<body ng-app="myapp" > 
+    <center> 
+        <div ng-controller="myctrl" class="container"> 
+            <h1>Employee Table</h1> 
+            <select ng-model="selection" class="form-select" > 
+                <!-- <option>{{selection}}</option> --> 
+                <option value="+name">ASC Name</option> 
+                <option value="-name">DESC Name</option> 
+                <option value="-salary">DESC Salary</option> 
+                <option value="+salary">ASC Salary</option> 
+                <option value="+DOB">ASC DOB</option> 
+                <option value="-DOB">DESC DOB</option> 
+                </select><br><br> 
+                <table> 
+                    <thead> 
+                        <tr> 
+                            <th>Name</th> 
+                            <th>DOB</th> 
+                            <th>Gender</th> 
+                            <th>Salary</th> 
+                            </tr> 
+                            </thead> 
+                            <tbody> 
+                                <tr ng-repeat="x in employee|orderBy: selection"> 
+                                    <td>{{x.name}}</td> 
+                                    <td>{{x.DOB|date:"dd/MM/yyyy"}}</td> 
+                                    <td>{{x.gender}}</td> 
+                                    <td>{{x.salary}}</td> 
+                                    </tr> </tbody> 
+                                    </table> </div> </center> 
+<script> 
+app = angular.module("myapp",[]); 
+app.controller("myctrl",function($scope){
+    var employee = [{name: "Ben", DOB: new Date("23 Nov 1980"), gender: "Male", salary: 55000}, {name: "Mark", DOB: new Date("15 Aug 1974"), gender: "Male", salary: 57000}, {name: "Pam", DOB: new Date("27 Oct 1979"), gender: "Female", salary: 53000}, {name: "Sara", DOB: new Date("05 May 1970"), gender: "Female", salary: 68000}, {name: "Todd", DOB: new Date("30 Dec 1983"), gender: "Male", salary: 60000}, ]; 
+    $scope.employee = employee; }); 
+    </script> 
+    <!-- JavaScript Bundle with Popper --> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" 
+    crossorigin="anonymous">
+</script> </body> </html>

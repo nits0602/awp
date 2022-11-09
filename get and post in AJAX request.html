@@ -1,0 +1,75 @@
+<html> 
+    <head> 
+        <style> 
+        h1 { color: rgb(0, 0, 0); font-family: 'TIMES NEW ROMAN'; text-transform: uppercase; font-weight: 900; font-size: 25px; text-align: center; } 
+        html, body { font-family: TIMES NEW ROMAN, calibri; font-size: 15px; line-height: 1.5; border: 1px solid rgb(0, 0, 0); border-radius: 2px; border-color: rgb(5, 205, 231); padding: 2px; background-color: #0c5379; } 
+        form { margin-bottom: 20px; border: 1px solid white; border-radius: 2px; border-color: rgb(12, 12, 12); background-color: whitesmoke; color: darkblue; } 
+        select { border: 2px solid #e74c3c; border-radius: 3px; } 
+        label { padding: 20px; font-size: 25px; font-weight: bold; color: black; } 
+        .class { padding: 20px; border-radius: 5px; background-color: #b1baba; box-shadow: 0 1px 6px rgba(0, 0, 0, .3); color: white; } 
+        .selectbox { padding: 20px; border: 1px solid white; border-radius: 5px; background-color: rgb(255, 0, 140); box-shadow: 0 1px 6px rgba(0, 0, 0, .3); color: white; } 
+        .selectbox1 { padding: 20px; border: 1px solid white; border-radius: 5px; background-color: rgb(10, 226, 183); box-shadow: 0 1px 6px rgba(0, 0, 0, .3); color: white; width: 500px; } 
+        .container { padding: 20px; border-radius: 5px; background-color: #000000; box-shadow: 0 1px 6px rgba(0, 0, 0, .3); color: white; border-color: #e6b800; } 
+        .btn { border-radius: 2px; padding: 20px; border-radius: 5px; background-color: #476b6b; box-shadow: 0 1px 6px rgba(0, 0, 0, .3); color: white; } 
+        </style> 
+    </head> 
+    <body> 
+        <form onsubmit="return Info()" align="center"> 
+            <h1> User Form </h1> 
+            <br> 
+            <div class="container"> 
+                <div class="selectbox"> 
+                    <label for="username">Username:</label> 
+                    <input class="selectbox1" type="text" id="username" name="username"> 
+                </div><br>
+                <div class="selectbox"> 
+                    <label for="pwd">Password:</label> 
+                    <input class="selectbox1" type="password" id="pwd" name="pwd"> 
+                </div><br> 
+                <div class="selectbox"> 
+                    <label>Degree:</label> 
+                    <select class="selectbox1" id="degree" onchange="myfun(this.value)"> 
+                    <option>Select Degree</option> 
+                    <option>B.Tech</option> 
+                    <option>MBA.Tech</option> 
+                    </select> 
+                </div><br> 
+                <div class="selectbox"> 
+                    <label>Choose Class : </label> 
+                    <select class="selectbox1" id="class"> 
+                        <option>Select class</option> 
+                    </select> 
+                    </div> 
+                </div><br> 
+                <div> 
+                    <input class="selectbox1" type="submit" value="Submit" class="btn"> </div> 
+                    </form> 
+                    <div id="submit" class="selectbox"> 
+                        <h1> The Submitted Data Is--- </h1> 
+                        </div> 
+                        <script type="text/javascript"> 
+                        document.getElementById("submit").style.visibility = "hidden"; 
+                        function myfun(data) 
+                        { 
+                            //alert(data); 
+                            var req = new XMLHttpRequest(); 
+                            req.open("GET", "mycourse.php?datavalue=" + data, true); 
+                            req.send(); 
+                            req.onreadystatechange = function() 
+                            { 
+                                if (req.readyState == 4 && req.status == 200) 
+                                { 
+                                    document.getElementById("class").innerHTML = req.responseText; 
+                                }
+                            }; 
+                        } 
+                        function Info() 
+                        { 
+                            uname = document.getElementById('username').value; 
+                            degree = document.getElementById('degree').value; 
+                            clas = document.getElementById('class').value; 
+                            txt = "<h2> The Submitted Data is --- </h2><br> Username : " + uname + "<br>Degree : " + degree + "<br>Class : " + clas; document.write(txt); 
+                        } 
+                        </script> 
+                        </body> 
+                        </html>

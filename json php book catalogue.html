@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Creatimg a JSON file for the given scenario</title>
+
+</head>
+
+<style>
+
+h1
+
+{
+
+text-align: center;
+
+color: black;
+
+}
+
+body
+{ 
+    background-color:bue-green 
+} 
+script 
+{ 
+    text-align:center; 
+} 
+button 
+{ 
+    cursor:pointer; 
+    background-color:white; 
+    color: red; 
+} 
+table,th,td 
+{ 
+    width:80%; 
+    text-align:center; 
+    border-collapse:collapse; 
+} 
+</style> 
+<body> 
+    <center> 
+        <h2 style="text-align: center;"></h2> 
+        <h1><u>BOOK CATALOGUE</u></h1> 
+        <h1>N209 Nitigya Laddha</h1> 
+        <script> 
+        var book_catalogue = [ { "ISSN":"10", "title":"Anna Karenina", "author":"Leo Tolstoy", "price":"2500" }, { "ISSN":"11", "title":"Madame Bovary", "author":"Gustave Flaubert", "price":"1700" }, { "ISSN":"12", "title":"War and Peace", "author":"Leo Tolstoy", "price":"2000" }, { "ISSN":"13", "title":"The Great Gatsby", "author":"F Scott Fitzgerald", "price":"1400" },{ "ISSN":"14", "title":"Lolita", "author":"Vladimir Nabokov", "price":"900" } ];
+        fun1=function()
+        { 
+            var flag=0; 
+            var a=prompt("Write the ISSN number of the book you want to delete:"); 
+            for(var i=0;i<book_catalogue.length;i++) 
+            { 
+                if(a==book_catalogue[i].ISSN)
+                { 
+                    book_catalogue.splice(i,1); 
+                    flag=1; 
+                } 
+            } 
+            if(flag==0) 
+            alert("Book not found!"); 
+            else 
+            alert("Book deleted successfully!"); 
+            document.write("<br><br><div style='background-color: blue;padding-bottom: 50px'><center><h1 style='padding-top: 5%'><u>UPDATED BOOK CATALOGUE</u></h1><br><h2>N209 Nitigya Laddha</h2></center><br>"); 
+            document.write("<center><table style='border:2px solid;border-collapse:collapse;width:80%;text-align:center;border-collapse:collapse;'>"); 
+            document.write("<tr><th>ISSN Number</th><th>Title</th><th>Author</th><th>Price</th>"); 
+                for(i=0;i<book_catalogue.length;i++)
+                { 
+                    document.write("<tr>"); 
+                        document.write("<td>"+book_catalogue[i].ISSN+"</td>"+"<td>"+book_catalogue[i].title+"</td>"+"<td>"+book_catalogue[i].author+"</td>"+"<td>"+book_catalogue[i].price+"</td>"); 
+                        document.write("</tr>"); 
+                }
+                         document.write("</table><br><br><br><br><br><br></center></div>"); 
+            } 
+            fun2=function()
+            { 
+                var b=prompt("Write the title of the book you want to update:"); 
+                var cost=prompt("Write the updated price of the book:"); 
+                for(var j=0;j<book_catalogue.length;j++) 
+                { 
+                    if(b==book_catalogue[j].title)
+                    { 
+                        book_catalogue[j].price=cost; 
+                    } 
+                } 
+                document.write("<br><br><div style='background-color: lightgreen;padding-bottom: 50px'><center><h1 style='padding-top: 5%'><u>UPDATED BOOK CATALOGUE</u></h1><br><h2>N209 Nitigya Laddha</h2></center><br>");
+                    document.write("<br><br>"); 
+                    document.write("<center><table style='border:2px solid;border-collapse:collapse;width:80%;text-align:center;border-collapse:collapse;'>"); 
+                    document.write("<tr><th>ISSN Number</th><th>Title</th><th>Author</th><th>Price</th>"); 
+                    for(var k=0;k<book_catalogue.length;k++)
+                    { 
+                        document.write("<tr>"); 
+                        document.write("<td>"+book_catalogue[k].ISSN+"</td>"+"<td>"+book_catalogue[k].title+"</td>"+"<td>"+book_catalogue[k].author+"</td>"+"<td>"+book_catalogue[k].price+"</td>"); 
+                        document.write("</tr>"); 
+                    } 
+                    document.write("</table><br><br><br><br><br></center></div>"); 
+                    } 
+                    </script> 
+                    <table border="3px"> 
+                        <th>ISSN Number</th> 
+                        <th>Title</th> 
+                        <th>Author</th> 
+                        <th>Price</th> 
+                        <tr> <td>10</td> <td>Anna Karenina</td> <td>Leo Tolstoy</td> <td>2500</td> </tr> 
+                        <tr> <td>11</td> <td>Madame Bovary</td> <td>Gustave Flaubert</td> <td>1700</td> </tr> 
+                        <tr> <td>12</td> <td>War and Peace</td> <td>Leo Tolstoy</td> <td>2000</td> </tr> 
+                        <tr> <td>13</td> <td>The Great Gatsby</td> <td>F Scott Fitzgerald</td> <td>1400</td> </tr>
+                        <tr> <td>14</td> <td>Lolita</td> <td>Vladimir Nabokov</td> <td>900</td> </tr> 
+                    </table> <br><br><br> 
+                    <button onclick="fun1()">Delete Book</button> &nbsp;&nbsp;&nbsp; 
+                    <button onclick="fun2()">Update Price of Book</button> 
+                </center> 
+            </body> 
+            </html>
+          

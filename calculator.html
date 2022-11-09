@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html ng-app>
+
+<head> <script data-require="angular.js@1.0.7" data-semver="1.0.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+
+<title>AWP Practical 2 Calculator</title>
+
+</head>
+
+<style> body {background-color: lightskyblue;} </style>
+
+<body>
+
+<section>
+
+<h1 style="text-align:center;">AngularJS Calculator</h1>
+
+<br>
+
+<center>
+
+<div class="container"></div>
+
+<div class="row">
+
+<div class="col">
+
+<div ng-controller="CalculatorCtrl">
+
+<table>
+
+<tr>
+
+<td>value1 =</td>
+
+<td><input ng-model="a"></td>
+
+</tr>
+
+<tr>
+
+<td>value2 =</td>
+
+<td><input ng-model="b"></td>
+
+</tr>
+
+<tr>
+
+<td>operation:</td>
+
+<td>
+
+<select ng-model="operation">
+
+<option value="+">+</option>
+
+<option value="-">-</option>
+
+<option value="*">*</option>
+
+<option value="/">/</option>
+
+</select>
+
+</td>
+
+</tr>
+
+</div>
+
+</center>
+
+</table>
+
+<b class="result"> {{na()}} {{operation}} {{nb()}} = {{calculate()}} </b>
+
+</div>
+
+</section>
+
+</body>
+
+<script>
+
+function CalculatorCtrl($scope)
+
+{
+
+$scope.a = 0;
+
+$scope.b = 0;
+
+$scope.operation = '+';
+
+$scope.na = function()
+
+{
+
+return $scope.a - 0;
+
+}
+
+$scope.nb = function()
+
+{
+
+return $scope.b - 0;
+
+}
+
+$scope.calculate = function()
+
+{
+
+if($scope.operation == '+')
+
+{
+
+return $scope.na() + $scope.nb();
+
+}
+
+if($scope.operation == '-')
+
+{
+
+return $scope.a - $scope.b;
+
+}
+
+if($scope.operation == '*')
+
+{
+
+return $scope.a * $scope.b;
+
+}
+
+if($scope.operation == '/')
+
+{
+
+return $scope.a / $scope.b;
+
+}
+
+return "undef";
+
+}
+
+}
+
+</script>
+
+</html>

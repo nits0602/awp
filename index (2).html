@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation using AJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="C:\Users\Laddha\Desktop\project\form using js\script (2).js"></script>
+    <link rel="stylesheet" href="C:\Users\Laddha\Desktop\project\form using js\style (1).css">
+</head>
+<body ng-app="myapp" ng-controller="myctrl">
+    <form name="myform" id="form" >
+    <div class="container" >
+        <h2 class="heading">Student Register</h2>
+        <div class="seperation"></div>
+        
+            <div class="inputs">
+                <div class="input">
+                    <label for="fname" id="1" hidden>First Name</label><br>
+                    <input class="input" type="text" ng-model="fname" name="fname" id="fname" placeholder="First Name" required/><br>
+                    <span ng-show="myform.fname.$touched && myform.fname.$invalid">First Name is Required</span>
+                </div>
+                <div class="input">
+                    <label for="lname" id="2" hidden>Last Name</label><br>
+                    <input class="input" type="text" ng-model="lname" name="lname" id="lname" placeholder="Last Name"/><br>
+                </div>
+                <div class="input">
+                    <label for="email" id="3" hidden>Email</label><br>
+                    <input class="input" type="email" ng-model="email" name="email" id="email" placeholder="Email"/>
+                    <br>
+                    <span ng-show="myform.email.$touched && myform.email.$invalid">Enter proper format of email</span>
+                </div>
+                <div class="input">
+                    <label for="password" id="4" hidden>Password</label><br>
+                    <input class="input" type="password" ng-model="pwd" name="password" id="pwd" placeholder="Password" required minlength="8" maxlength="15"/><br>
+                    <span ng-show="myform.password.$touched && myform.password.$invalid">password is required & password length must be greater than 8 and less than 14 </span>
+                </div>
+                <div class="input">
+                    <label for="phone" id="5" hidden>Phone</label><br>
+                    <input class="input" type="number" ng-model="phone" name="phone" id="phone" placeholder="Phone" minlength="10" maxlength="10" required/><br>
+                    <span ng-show="myform.phone.$touched && myform.phone.$invalid">Phone no is required and length must be equal to 10</span>
+                </div>
+            </div>
+            <div class="submit">
+                <div class="done">
+                    <input type="button" ng-click="add()" value="submit" ng-show="myform.$valid"/>
+                </div>
+                <div class="cancel">
+                    <input type="button" ng-click="clear()" value="cancel"/>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="seperation"></div>
+    <h4 class="regUsers">Registered Users</h4>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in data">
+                    <td>{{x.fname}}</td>
+                    <td>{{x.lname}}</td>
+                    <td>{{x.email}}</td>
+                    <td>{{x.phone}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

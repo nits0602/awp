@@ -1,0 +1,45 @@
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width, initial-
+
+scale=1.0">
+
+<!-- CSS only -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-
+
+beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-
+
+0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+
+crossorigin="anonymous">
+
+<title>AWP Practical 1</title>
+
+<script>
+
+function validation()
+
+{
+
+a= checkuser();
+
+b= checkpass();
+
+c= checkmail();
+
+d= checknumber();
+
+function checkuser()
+{ var element= document.getElementById("t1"); var asd= element.value; ch= asd.charAt(0); if(ch=="A") { return true; } else { alert("Invalid Name"); return false; } } // Function checkuser ends // Fucntion checkpass starts 
+function checkpass() { var r= /^[A-Za-z]\w{7,15}$/; var element2= document.getElementById("t2"); var pass= element2.value; if(pass.match(r)) { return true; } else { alert("Invalid password") return false; } } // Function checkpass ends // Function checkmail starts 
+function checkmail() { var r2= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; var element3= document.getElementById("t3"); var mail= element3.value; if(mail.match(r2)) {
+    return true; } else { alert("Invalid Mail"); return false; } } // Function checkmail ends // Function checknumber starts 
+    function checknumber() { var r3= /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/; var element4= document.getElementById("t4"); var number= element4.value; if(number.match(r3)) { return true; } else { alert("Invalid Phone Number"); return false; } } } </script> </head>> <style> body {background-color: lightskyblue;} p {color: black;} p1 {color: black; } p2 {color:black;} p3 {color:black;} </style> </head> <body> <h1 style="text-align: center;">Form Validation</h1> <br>
+    <center> <div class="container"></div> <form onsubmit="return validation()"> <div class="row"> <div class="col"> <p> USERNAME <input type="text" id="t1"> </p> </div> <div class="col"> <p1> PASSWORD <input type="password" id="t2"> </p1> </div> </div> <div class="row"> <div class="col"> <p2> EMAIL <input type="text" id="t3"> </p2> </div> <div class="col"> <p3> PHONE NUMBER <input type="number" id="t4"> </p3> </div> </div><br> </center> </form> <center><input type="submit" value="Submit" class="btn btn-primary"/></center> </form> </div> </body> </html>

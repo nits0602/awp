@@ -1,0 +1,56 @@
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+<div ng-app="myapp" ng-controller="myctrl" ng-init="count=0" >
+
+<h1>Click the button to view the text through $http request</h1>
+
+<input type="button"value="click" ng-click="run(count)"></input>
+
+<h2 ng-show="btn">This is the text from hello.html file---->{{ welcomeMsg }}</h2>
+
+</div>
+
+<script>
+
+ var app=angular.module("myapp",[]);
+
+app.controller("myctrl",function($scope,$http){
+
+$scope.run = function(count){
+
+if($scope.count%2 == 0){
+
+$scope.btn = true;
+
+$scope.count = $scope.count+1;
+
+$http.get("hello.html")
+
+.then(function(response){
+ $scope.welcomeMsg = response.data;
+
+ });
+
+ }
+
+ else{
+
+ $scope.btn = false;
+
+ $scope.count = $scope.count+1;
+
+ }
+
+ }
+
+ });
+
+ </script>
+
+ </body>
+
+ </html>

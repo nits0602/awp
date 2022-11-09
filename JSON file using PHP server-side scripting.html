@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>AWP Practical 6 Part 2</title> 
+        <style> 
+        body{ background-color: black; color: yellow; padding: 2%; } 
+        h2{ background-color: lightblue; color: green; } 
+        button{ width: 57%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box; border: 1.5px solid salmon; border-radius: 8px; background-color: red; border: none; color: yellow; font-size: large padding: 16px 32px; text-decoration: none; margin: 4px 2px; cursor: pointer; } 
+        p{ padding-left: 25%; font-size: larger; margin-right: 43%; background-color: pink; } 
+        </style> 
+        </head> 
+        <body> 
+            <h2>Accessing From JSON <br> <br> N209 Nitigya Laddha</h2><br> 
+            <button onclick="clickButton()">Access</button> 
+            <p id="demo"></p> 
+            <script> 
+            function clickButton()
+            { 
+                let s = document.createElement("script"); 
+                s.src = "file.php"; 
+                document.body.appendChild(s); 
+            } 
+            function MyFunc(myObj)
+            { 
+                for(i=0; i<3; i++)
+                { 
+                    document.getElementById("demo").innerHTML += myObj[i].author; 
+                    document.getElementById("demo").innerHTML += "<br>"; 
+                } 
+            } 
+            </script> 
+            </body> 
+            </html> 
+            

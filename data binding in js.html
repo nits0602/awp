@@ -1,0 +1,129 @@
+<html> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+        <title>N209</title> 
+        <style> 
+        table
+        { 
+            border-radius: 50px; 
+            align-items: center; 
+            justify-content: center; 
+            vertical-align: middle; 
+            margin: 70px; 
+            padding: 70px; 
+            margin-top: 220px; 
+        } 
+        tr,td
+        {
+            align-items: center; 
+            justify-content: center; 
+            font-size: 50; 
+            font-weight: bold; 
+            background-color: aqua; 
+            vertical-align: middle; 
+            margin: 15px 40px; 
+            padding: 15px 40px; 
+        } 
+        </style> 
+        </head> 
+        <body> 
+            <div ng-app="cart" ng-controller="MyCtrl"> 
+                <center>
+                    <table> 
+                        <tr> 
+                            <td>Web Dev</td> 
+                            <td ng-click="click_300()" style="cursor: pointer;" ng-style="color">300</td> 
+                        </tr> 
+                        <tr> 
+                            <td>Design</td> 
+                            <td ng-click="click_400()" style="cursor: pointer;" ng-style="color1">400</td> 
+                        </tr> 
+                        <tr> 
+                            <td>Integration</td> 
+                            <td ng-click="click_250()" style="cursor: pointer;" ng-style="color2">250</td> 
+                        </tr> 
+                        <tr> 
+                            <td>Training</td> 
+                            <td ng-click="click_220()" style="cursor: pointer;" ng-style="color3">220</td> 
+                        </tr> 
+                        <tr> 
+                            <td style="background-color: darkblue; color: white;">Total</td> 
+                            <td style="background-color: darkblue; color: white;">{{sum}}</td
+                            </tr> 
+                            </table>
+                            </center> 
+                            </div> 
+                            <script> 
+                            app=angular.module("cart",[]); 
+                            app.controller("MyCtrl",function($scope){ 
+                                $scope.sum = 0; 
+                                $scope.flag_300 = 0; 
+                                //0 if not added, 1 if added 
+                                $scope.flag_400 = 0; 
+                                //0 if not added, 1 if added 
+                                $scope.flag_250 = 0; 
+                                //0 if not added, 1 if added 
+                                $scope.flag_220 = 0; 
+                                //0 if not added, 1 if added 
+                                $scope.click_300 = function(){ 
+                                    if ($scope.flag_300 == 0)
+                                    { 
+                                        $scope.sum = $scope.sum + 300; 
+                                        $scope.flag_300=1; 
+                                        $scope.color = {'background-color':'pink'} 
+                                    } 
+                                    else if ($scope.flag_300 == 1)
+                                    { 
+                                        $scope.sum = $scope.sum - 300; 
+                                        $scope.flag_300=0; 
+                                        $scope.color = {'background-color':'lightblue'} 
+                                    } 
+                                }; 
+                                $scope.click_400 = function(){ 
+                                    if ($scope.flag_400 == 0)
+                                    { 
+                                        $scope.sum = $scope.sum + 400; 
+                                        $scope.flag_400=1; 
+                                        $scope.color1 = {'background-color':'pink'} 
+                                    } 
+                                    else if ($scope.flag_400 == 1)
+                                    { 
+                                        $scope.sum = $scope.sum - 400; 
+                                        $scope.flag_400=0; 
+                                        $scope.color1 = {'background-color':'lightblue'} 
+                                    } 
+                                }; 
+                                $scope.click_250 = function(){
+                                    if ($scope.flag_250 == 0)
+                                    { 
+                                        $scope.sum = $scope.sum + 250; 
+                                        $scope.flag_250=1; 
+                                        $scope.color2 = {'background-color':'pink'} 
+                                    } 
+                                    else if ($scope.flag_250 == 1)
+                                    { 
+                                        $scope.sum = $scope.sum - 250; 
+                                        $scope.flag_250=0; 
+                                        $scope.color2 = {'background-color':'lightblue'} 
+                                    } 
+                                    }; 
+                                    $scope.click_220 = function(){ 
+                                        if ($scope.flag_220 == 0)
+                                        { 
+                                            $scope.sum = $scope.sum + 220; 
+                                            $scope.flag_220=1; 
+                                            $scope.color3 = {'background-color':'pink'} 
+                                        } 
+                                        else if ($scope.flag_220 == 1)
+                                        { 
+                                            $scope.sum = $scope.sum - 220; 
+                                            $scope.flag_220=0; 
+                                            $scope.color3 = {'background-color': 'pink'} 
+                                        } 
+                                    }; }); 
+                                    </script> 
+                                    </body> 
+                                    </html>

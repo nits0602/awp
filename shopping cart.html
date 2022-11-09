@@ -1,0 +1,53 @@
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+
+<body>
+
+<div ng-app="ShoppingCart" ng-controller="myctrl" style="border: 2px solid red; width: 300px; height: 200px; background-color: blanchedalmond;">
+
+<ul>
+
+<li= ng-repeat="x in products">{{x}}<span ng-click="removeItem($index)"> &nbsp; &nbsp x </span> </li>
+
+<input type="text" id="t1" ng-model="addme"/>
+
+<input type="button" ng-click="add()" value="ADD TO CART"/>
+
+</ul>
+
+</div>
+
+<script>
+
+app=angular.module("ShoppingCart",[]);
+
+app.controller("myctrl",function($scope)
+
+{
+
+$scope.products=["BOOKS","PEN","PENCIL","ERASER"]
+
+$scope.add=function()
+
+{
+
+$scope.products.push($scope.addme);
+
+}
+
+$scope.removeItem=function(a)
+
+{
+
+$scope.products.splice(a,1);
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html

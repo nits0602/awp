@@ -1,0 +1,84 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+<title>EXP3 N211</title> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+<style> 
+* { font-family: Arial, Helvetica, sans-serif; font-size: large; text-align: center; margin-top: 5%; } 
+table { margin-left: 30%; border: solid blue; } 
+table th, table td { padding: 5px; } 
+table th:hover { cursor: pointer; } 
+.arrow-down:after, .arrow-up:after { content: " "; position: relative; left: 2px; border: 8px solid transparent; } 
+.arrow-down:after { top: 10px; border-top-color: brown;} 
+.arrow-up:after { bottom: 15px; border-bottom-color: brown; } 
+.arrow-down, .arrow-up { padding-right: 10px; } 
+</style> 
+</head> 
+<body ng-app="myapp"> 
+    <center> <h2>EXPERIMENT 3 PART 2</h2> 
+        <div ng-controller="myctrl"> 
+            <table border="3" width="40%"> 
+                <thead> 
+                    <tr> 
+                        <th ng-click='sortColumn("name")' ng-class='sortClass("name")'>Name</th> 
+                        <th ng-click='sortColumn("DOB")' ng-class='sortClass("DOB")'>Date Of Birth</th> 
+                        <th ng-click='sortColumn("gender")' ng-class='sortClass("gender")'>Gender</th> 
+                        <th ng-click='sortColumn("salary")' ng-class='sortClass("salary")'>Salary</th> 
+                    </tr> 
+                </thead> 
+                <tbody> 
+                    <tr ng-repeat="x in employee|orderBy: column:reverse"> 
+                        <td>{{x.name}}</td> 
+                        <td>{{x.DOB|date:"dd/MM/yyyy"}}</td> 
+                        <td>{{x.gender}}</td> 
+                        <td>{{x.salary}}</td> 
+                    </tr> 
+                </tbody>
+            </table> 
+            <script> 
+            app = angular.module("myapp", []); 
+            app.controller("myctrl", function($scope) 
+            { 
+                var employee = 
+                [{ name: "Ben", DOB: new Date("23 Nov 1980"), gender: "Male", salary: 55000, }, { name: "Mark", DOB: new Date("15 Aug 1974"), gender: "Male", salary: 57000, }, { name: "Pam", DOB: new Date("27 Oct 1979"), gender: "Female", salary: 53000, }, { name: "Sara", DOB: new Date("5 May 1974"), gender: "Female", salary: 68000, }, { name: "Todd", DOB: new Date("30 Dec 1983"), gender: "Male", salary: 60000, }, ]; 
+                $scope.employee = employee; 
+                // new codes 
+                $scope.column = "name"; 
+                $scope.reverse = false; 
+                $scope.sortColumn = function(col) 
+                { 
+                    $scope.column = col; 
+                    if ($scope.reverse) 
+                    { 
+                        $scope.reverse = false;
+                        $scope.reverseclass = "arrow-up"; 
+                    } 
+                    else 
+                    { 
+                        $scope.reverse = true; 
+                        $scope.reverseclass = "arrow-down"; 
+                    } 
+                }; 
+                $scope.sortClass = function(col) 
+                { 
+                    if ($scope.column == col) 
+                    { 
+                        if ($scope.reverse) 
+                        { 
+                            return "arrow-down"; 
+                        } 
+                    else 
+                    { 
+                        return "arrow-up"; 
+                    } 
+                    } 
+                    else 
+                    { 
+                        return ""; 
+                    } 
+                }; 
+            }); 
+            </script> 
+            </div> 
+        </center> 
+    </body> 
+    </html>

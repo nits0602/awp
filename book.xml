@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<!DOCTYPE xml> 
+
+<library> 
+
+ <book> 
+    <name>Analog computation and simulation</name> 
+    <author>Rajaraman, V</author> 
+ </book> 
+ <book> 
+     <name>Eloquent Javascript</name> 
+     <author>Marijn Haverbake's</author> 
+ </book> 
+  <book> 
+       <name>Don't Make Me Think</name> 
+       <author>Steve Krug</author> 
+ </book> 
+ <book> 
+     <name>Fullstack Vue: The Complete Guide to Vue.js</name> 
+     <author>Hassan Djirdeh, Nate Murray, and Ari Lerner</author> 
+ </book> 
+ <book> 
+     <name>PHP and MySQL for Dynamic Web Sites: Visual QuickPro Guide</name> 
+    <author> Larry Ullman</author> 
+ </book> 
+</library>
